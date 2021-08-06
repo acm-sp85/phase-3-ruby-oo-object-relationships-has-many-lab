@@ -15,14 +15,7 @@ class Song
     end
 
     def artist_name
-
-        finding = @@all.find{|song| song.name == self.name}
-        if finding.artist.name
-            return finding.artist.name
-        else
-            return nil
-        end
-
+        self.artist&.name
     end
 
 end

@@ -12,19 +12,16 @@ class Author
     
     
     def add_post(arg_of_post)
-        Post.all.filter {|post| post.title == self}
+        arg_of_post.author = self
        
     end 
-        # Post.all.
-
-        # post.artist = self
-
-
-
 
     def add_post_by_title(title)
         new_post = Post.new(title)
-        new_post.author = self
-
+        add_post(new_post)
+    end
+    def self.post_count
+        total_posts = Post.all.filter{|post| post.author}
+        total_posts.length
     end
 end
